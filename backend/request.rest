@@ -1,1 +1,16 @@
 GET http://localhost:8800/books HTTP/1.1
+
+#######
+
+POST http://localhost:8800/books HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "title from API",
+    "desc": "desc from API",
+    "cover": "cover from API"
+}
+
+#######
+
+GET http://localhost:8800/books?id='2'
