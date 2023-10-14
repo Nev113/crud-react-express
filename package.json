@@ -1,0 +1,26 @@
+{
+  "name": "crud-react-express",
+  "version": "1.0.0",
+  "description": "CRUD USING REACT AND EXPRESS",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nevosangkane/crud-react-express.git"
+  },
+  "author": "Nevo Sangkane",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nevosangkane/crud-react-express/issues"
+  },
+  "homepage": "https://github.com/nevosangkane/crud-react-express#readme",
+  "dependencies": {
+    "axios": "^1.5.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql2": "^3.6.1"
+  }
+}
