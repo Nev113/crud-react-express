@@ -9,9 +9,9 @@ export const getBooksData = (req, res) => {
 };
 
 export const addDataBook = (req, res) => {
-    const {title, desc, cover} = req.body;
-    const q = 'INSERT INTO books (`title`, `description`, `cover`) VALUE (?)';
-    db.query(q, [[title, desc, cover]], (err) => {
+    const {title, desc, cover, price} = req.body;
+    const q = 'INSERT INTO books (`title`, `description`,`cover`,`price` ) VALUE (?)';
+    db.query(q, [[title, desc, cover, price]], (err) => {
         if (err) return res.json({msg: 'Data gagal ditambahkan', err: err}).status(500);
         return res.json({msg: 'Data berhasil ditambahkan.'});
     });
@@ -26,3 +26,22 @@ export const getDataBookByQuery = (req, res) => {
         return res.json(data);
     });
 };
+
+export const deleteDataBook = (req, res) => {
+    const { id } = req.params;
+    const q = `DELETE FROM books WHERE id = ${id}`;
+    db.query(q, (err) => {
+        if (err) return res.json({msg: 'Data gagal dihapus'}).status(500);
+        return res.json({msg: 'Data berhasil dihapus'});
+    });
+}
+
+export const updateDataBook = (req, res) => {
+    const { id } = req.params;
+    const { title, desc, cover, price } = req.body;
+    const q = `UPDATE books SET title = '${title}', description = '${desc}', cover = '${cover}', price = '${price}' WHERE id = ${id}`;
+    db.query(q, (err) => {
+        if (err) return res.json({msg: 'Data gagal diupdate'}).status(500);
+        return res.json({msg: 'Data berhasil diupdate'});
+    });
+}
